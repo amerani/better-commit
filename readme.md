@@ -21,3 +21,8 @@
 
  ### cli
  `better-commit -am "better-commit is awesome"`
+
+ ## Options
+ supports all `git commit` options
+
+ 
