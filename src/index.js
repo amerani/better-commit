@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 const { exec } =  require("child_process");
 const { get: getBranch } = require("./branch");
-const prepend = require("./prepend");
+// const prepend = require("./prepend");
+const plugins = require("./plugins");
+const path = require("path");
 
 let commandPromise;
 const args = [...process.argv];
@@ -20,14 +22,21 @@ if(messageIndex >= 0) {
     
     commandPromise = getBranch()
     .then(name => {
-
-        const { message } = prepend({
+        const seed = {
             commit: { message: rawMessage },
             branch: { name }
-        })
-        
-        //build command        
-        return `git commit ${matchMessage} "${message}" ${args.join(" ")}`;
+        };
+        return plugins.get()
+        .then(plugins => {
+            for(let i = 0; i < plugins.length; i++) {
+                const plugin = plugins[i];
+                const pluginModule = require(plugin);
+                const { message } = pluginModule(seed);
+                seed.commit.message = message;
+            }
+            //build command        
+            return `git commit ${matchMessage} "${seed.commit.message}" ${args.join(" ")}`;
+        });
     });
 }
 else {
@@ -36,6 +45,7 @@ else {
 
 commandPromise
 .then(command => {
+    console.log(command)
     exec(command, (error, stdout, stderr) => {
         if(error) { console.log(stdout); }
         if(stdout) { console.log(stdout); }
