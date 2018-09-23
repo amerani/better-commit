@@ -12,14 +12,19 @@ const messageIndex = args.indexOf(matchMessage);
 
 if(messageIndex >= 0) {
     const rawMessage = args[messageIndex + 1];
+
     //remove -*m "<message>"
     args.splice(messageIndex, 2);
     
-    //TODO: manipulate message
     commandPromise = getBranch()
     .then(name => {
-        //build command
-        const message = name === "master" ? rawMessage : `${name}: ${rawMessage}`;
+
+        //dont prepend for master or un-named refs
+        const message = name === null || name === "master" 
+            ? rawMessage 
+            : `${name}: ${rawMessage}`;
+        
+        //build command        
         return `git commit ${matchMessage} "${message}" ${args.join(" ")}`;
     });
 }
