@@ -6,6 +6,9 @@
   "scripts": {
     "test": "jest"
   },
+  "bin": {
+    "better-commit": "index.js"
+  },
   "keywords": [
     "git",
     "commit",
