@@ -23,10 +23,7 @@ else {
 }
 
 exec(command, (error, stdout, stderr) => {
-    if (error) {
-      console.error(error);
-      return;
-    }
+    if(error) { console.log(stdout); return; }
     if(stdout) { console.log(stdout); return; }
     if(stderr) { console.log(stderr); return; }
 });
