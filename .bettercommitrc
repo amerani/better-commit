@@ -1,5 +1,5 @@
 {
     "plugins": [
-        "./src/prepend"
+        "../plugins/prepend-branch/index"
     ]
 }
