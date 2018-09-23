@@ -18,8 +18,9 @@ if(messageIndex >= 0) {
     //TODO: manipulate message
     commandPromise = getBranch()
     .then(name => {
-    //build command
-        return `git commit ${matchMessage} "${name}: ${rawMessage}" ${args.join(" ")}`;
+        //build command
+        const message = name === "master" ? rawMessage : `${name}: ${rawMessage}`;
+        return `git commit ${matchMessage} "${message}" ${args.join(" ")}`;
     });
 }
 else {
