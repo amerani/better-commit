@@ -1,0 +1,16 @@
+{
+  "name": "better-commit",
+  "version": "1.0.0",
+  "description": "git commit with better features",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "cli"
+  ],
+  "author": "Alek Merani",
+  "license": "MIT"
+}
