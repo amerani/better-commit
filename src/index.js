@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 const { exec } =  require("child_process");
 const { get: getBranch } = require("./branch");
+const prepend = require("./prepend");
+
 let commandPromise;
 const args = [...process.argv];
 //remove 'node better-commit'
@@ -19,10 +21,10 @@ if(messageIndex >= 0) {
     commandPromise = getBranch()
     .then(name => {
 
-        //dont prepend for master or un-named refs
-        const message = name === null || name === "master" 
-            ? rawMessage 
-            : `${name}: ${rawMessage}`;
+        const { message } = prepend({
+            commit: { message: rawMessage },
+            branch: { name }
+        })
         
         //build command        
         return `git commit ${matchMessage} "${message}" ${args.join(" ")}`;
