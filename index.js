@@ -34,7 +34,6 @@ else {
 
 commandPromise
 .then(command => {
-    console.log(command)
     exec(command, (error, stdout, stderr) => {
         if(error) { console.log(stdout); }
         if(stdout) { console.log(stdout); }
