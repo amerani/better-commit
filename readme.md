@@ -29,5 +29,11 @@ create mode 100644 readme.md
 - no branch name prepended on `master` or `detached HEAD`  
 (TODO: branch name options)
 
+## Plugins
+- extensible by specifying plugins in `.bettercommitrc`
+- supports published npm packages like `better-commit-*`
+- also supports local modules for co-location benefits
+- [see example repository here](https://github.com/amerani/better-commit-examples)
+
 ## Contributing
 Please suggest features you'd like to use in your git workflow, better yet, submit a pull request :thumbsup:
