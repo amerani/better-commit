@@ -26,7 +26,8 @@ function normalize(plugin) {
     if(fs.existsSync(`${local}.js`) || fs.existsSync(local)) {
         return local.toString();
     }
-    return `better-commit-${plugin}`;
+    const nmPath = path.resolve(process.cwd(), "node_modules", `better-commit-${plugin}`);
+    return nmPath;
 }
 
 module.exports = {
