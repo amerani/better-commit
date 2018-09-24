@@ -5,6 +5,7 @@
 `npm i -g better-commit`
 
 ## Usage
+![Demo](https://raw.githubusercontent.com/amerani/better-commit/master/better-commit-demo.gif)
 
 ### git alias (recommended)
 `git config --global alias.c '!f() { better-commit "$@"; }; f'`
