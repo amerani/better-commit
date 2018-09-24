@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 const { exec } =  require("child_process");
 const { get: getBranch } = require("./branch");
-// const prepend = require("./prepend");
 const plugins = require("./plugins");
-const path = require("path");
 
 let commandPromise;
 const args = [...process.argv];
@@ -45,9 +43,8 @@ else {
 
 commandPromise
 .then(command => {
-    console.log(command)
     exec(command, (error, stdout, stderr) => {
-        if(error) { console.log(stdout); }
+        if(error) { console.log(stdout); return;}
         if(stdout) { console.log(stdout); }
         if(stderr) { console.log(stderr); }
     });
