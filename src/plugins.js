@@ -7,19 +7,26 @@ const preset = [
 
 function get() {
     return new Promise((resolve, reject) => {
-        fs.readFile(path.resolve(process.cwd(), ".bettercommitrc"), { encoding: 'utf-8'}, (err, data) => {
-            if(err) reject(err);
-            const plugins = [...JSON.parse(data).plugins, ...preset]
-            .map(plugin => {
-                const local = path.resolve(process.cwd(), plugin);
-                if(fs.existsSync(`${local}.js`) || fs.existsSync(local)) {
-                    return local.toString();
-                }
-                return `better-commit-${plugin}`;
-            });
-            resolve(plugins);
-        })
+        const rcPath = path.resolve(process.cwd(), ".bettercommitrc");
+        if(fs.existsSync(rcPath)) {
+            fs.readFile(rcPath, { encoding: 'utf-8'}, (err, data) => {
+                if(err) reject(err);
+                const plugins = [...JSON.parse(data).plugins, ...preset].map(normalize);
+                resolve(plugins);
+            })
+        }
+        else {
+            resolve(preset.map(normalize));
+        }
     })
+}
+
+function normalize(plugin) {
+    const local = path.resolve(process.cwd(), plugin);
+    if(fs.existsSync(`${local}.js`) || fs.existsSync(local)) {
+        return local.toString();
+    }
+    return `better-commit-${plugin}`;
 }
 
 module.exports = {
