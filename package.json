@@ -17,6 +17,7 @@
   "author": "Alek Merani",
   "license": "MIT",
   "devDependencies": {
+    "better-commit-prepend-branch": "^1.0.0",
     "jest": "^23.6.0"
   },
   "dependencies": {}

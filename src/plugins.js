@@ -10,7 +10,7 @@ function get() {
                 if(fs.existsSync(`${local}.js`) || fs.existsSync(local)) {
                     return local.toString();
                 }
-                return plugin;
+                return `better-commit-${plugin}`;
             });
             resolve(plugins);
         })
