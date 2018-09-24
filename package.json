@@ -1,6 +1,6 @@
 {
   "name": "better-commit",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "git commit with better features",
   "main": "src/index.js",
   "scripts": {
