@@ -11,5 +11,8 @@
     "branch"
   ],
   "author": "Alek Merani",
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependencies": {
+    "better-commit": "^1.1.0"
+  }
 }
