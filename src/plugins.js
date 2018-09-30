@@ -10,7 +10,10 @@ async function getAsync() {
     if(await fs.existsAsync(rcPath)) {
         const contents = await fs.readAsync(rcPath);
         const json = JSON.parse(contents);
-        const plugins = [...json.plugins, ...preset];
+        const include = json.plugins.filter(p => !p.startsWith("!"));
+        const exclude = json.plugins.filter(p => p.startsWith("!")).map(p => p.substring(1));
+        const allPlugins = [...include, ...preset];
+        const plugins = allPlugins.filter(p => !exclude.includes(p))
         return plugins.map(normalize);
     }
     return preset.map(normalize);

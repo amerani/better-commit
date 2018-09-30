@@ -41,6 +41,5 @@ const { getAsync: getPlugins } = require("./plugins");
         if(stdout) { console.log(stdout); }
         if(stderr) { console.log(stderr); }
     });
-
 })()
 .catch(console.log);
