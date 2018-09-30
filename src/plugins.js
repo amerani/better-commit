@@ -1,29 +1,26 @@
-const fs = require("fs");
+const fs = require("fs-jetpack");
 const path = require("path");
 
 const preset = [
     "prepend-branch"
 ]
 
-function get() {
-    return new Promise((resolve, reject) => {
-        const rcPath = path.resolve(process.cwd(), ".bettercommitrc");
-        if(fs.existsSync(rcPath)) {
-            fs.readFile(rcPath, { encoding: 'utf-8'}, (err, data) => {
-                if(err) reject(err);
-                const plugins = [...JSON.parse(data).plugins, ...preset].map(normalize);
-                resolve(plugins);
-            })
-        }
-        else {
-            resolve(preset.map(normalize));
-        }
-    })
+async function getAsync() {
+    const rcPath = path.resolve(process.cwd(), ".bettercommitrc");
+    if(await fs.existsAsync(rcPath)) {
+        const contents = await fs.readAsync(rcPath);
+        const json = JSON.parse(contents);
+        const plugins = [...json.plugins, ...preset];
+        return plugins.map(normalize);
+    }
+    return preset.map(normalize);
 }
 
-function normalize(plugin) {
+async function normalize(plugin) {
     const local = path.resolve(process.cwd(), plugin);
-    if(fs.existsSync(`${local}.js`) || fs.existsSync(local)) {
+    if(await fs.existsAsync(`${local}.js`) || 
+       await fs.existsAsync(local)) 
+    {
         return local.toString();
     }
     const nmPath = path.resolve(process.cwd(), "node_modules", `better-commit-${plugin}`);
@@ -31,5 +28,5 @@ function normalize(plugin) {
 }
 
 module.exports = {
-    get
+    getAsync
 };

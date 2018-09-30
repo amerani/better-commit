@@ -20,6 +20,7 @@
     "jest": "^23.6.0"
   },
   "dependencies": {
-    "better-commit-prepend-branch": "^1.0.0"
+    "better-commit-prepend-branch": "^1.0.0",
+    "fs-jetpack": "^2.1.1"
   }
 }

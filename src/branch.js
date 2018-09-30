@@ -1,15 +1,11 @@
-const fs = require("fs");
+const fs = require("fs-jetpack");
 const path = require("path");
 
-function get() {
-    return new Promise((resolve, reject) => {
-        fs.readFile(path.resolve(process.cwd(), ".git", "HEAD"), { encoding: 'utf-8'}, (err, data) => {
-            if(err) reject(err);
-            const branch = parse(data);
-            if(branch) resolve(branch);
-            else resolve(null);
-        })
-    })
+async function getAsync() {
+    const contents = await fs.readAsync(path.resolve(process.cwd(), ".git", "HEAD"));
+    const branch = parse(contents);
+    if(branch) return branch;
+    return null;
 }
 
 function parse(head) {
@@ -19,6 +15,6 @@ function parse(head) {
 }
 
 module.exports = {
-    get,
+    getAsync,
     parse
 };
