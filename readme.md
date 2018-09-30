@@ -5,7 +5,6 @@
 `npm i -g better-commit`
 
 ## Usage
-![Demo](https://raw.githubusercontent.com/amerani/better-commit/master/better-commit-demo.gif)
 
 ### git alias (recommended)
 `git config --global alias.c '!f() { better-commit "$@"; }; f'`
@@ -35,6 +34,9 @@ create mode 100644 readme.md
 - supports published npm packages like `better-commit-*`
 - also supports local modules for co-location benefits
 - [see example repository here](https://github.com/amerani/better-commit-examples)
+
+## Demo
+![Demo](https://raw.githubusercontent.com/amerani/better-commit/master/better-commit-demo.gif)
 
 ## Contributing
 Please suggest features you'd like to use in your git workflow, better yet, submit a pull request :thumbsup:
