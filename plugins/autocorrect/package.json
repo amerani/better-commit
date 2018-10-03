@@ -1,0 +1,22 @@
+{
+  "name": "better-commit-autocorrect",
+  "version": "1.0.0",
+  "description": "plugin for better commit to autocorrect spelling errors",
+  "main": "index.js",
+  "keywords": [
+    "better-commit",
+    "cli",
+    "git",
+    "commit",
+    "branch"
+  ],
+  "author": "Alek Merani",
+  "license": "MIT",
+  "peerDependencies": {
+    "better-commit": "^1.1.0"
+  },
+  "dependencies": {
+    "dictionary-en-us": "^2.0.0",
+    "nspell": "^2.1.0"
+  }
+}
