@@ -2,6 +2,7 @@
 const { exec } =  require("child_process");
 const { getAsync: getBranch } = require("./branch");
 const { getAsync: getPlugins } = require("./plugins");
+const { mode, DEV, PROD } = require("./mode");
 
 (async function () {
 
@@ -26,20 +27,30 @@ const { getAsync: getPlugins } = require("./plugins");
             commit: { message: rawMessage },
             branch: { name }
         };
+        
         const plugins = await Promise.all(await getPlugins());
+        
+        if(mode === DEV) console.log(plugins)
+
         for(let i = 0; i < plugins.length; i++) {
             const plugin = plugins[i];
             const pluginModule = require(plugin);
-            const { message } = pluginModule(seed);
+            const { message } = await pluginModule(seed);
             seed.commit.message = message;
         }
         //build command        
         command = `git commit ${matchMessage} "${seed.commit.message}" ${args.join(" ")}`;
     }
-    exec(command, (error, stdout, stderr) => {
-        if(error) { console.log(stdout); return;}
-        if(stdout) { console.log(stdout); }
-        if(stderr) { console.log(stderr); }
-    });
+
+    if(mode === DEV) {
+        console.log(command);
+    }
+    else {
+        exec(command, (error, stdout, stderr) => {
+            if(error) { console.log(stdout); return;}
+            if(stdout) { console.log(stdout); }
+            if(stderr) { console.log(stderr); }
+        });
+    }
 })()
 .catch(console.log);

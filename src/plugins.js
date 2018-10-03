@@ -2,6 +2,7 @@ const fs = require("fs-jetpack");
 const path = require("path");
 
 const preset = [
+    "autocorrect",
     "prepend-branch"
 ]
 
