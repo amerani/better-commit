@@ -1,25 +1,28 @@
 const fs = require("fs-jetpack");
 const path = require("path");
+const filterPlugins = require("./filterPlugins");
 
-const preset = [
-    "prepend-branch"
-]
+const presets = ["prepend-branch", "autocorrect"]
 
 async function getAsync() {
     const rcPath = path.resolve(process.cwd(), ".bettercommitrc");
     if(await fs.existsAsync(rcPath)) {
         const contents = await fs.readAsync(rcPath);
         const json = JSON.parse(contents);
-        const include = json.plugins.filter(p => !p.startsWith("!"));
-        const exclude = json.plugins.filter(p => p.startsWith("!")).map(p => p.substring(1));
-        const allPlugins = [...include, ...preset];
-        const plugins = allPlugins.filter(p => !exclude.includes(p))
-        return plugins.map(normalize);
+        const plugins = filterPlugins([...presets, ...json.plugins]);
+        const pluginMap = {};
+        for(let i = 0; i < plugins.length; i++){
+            const plugin = plugins[i];
+            pluginMap[plugin[0]] = {
+                path: await resolvePath(plugin[0]),
+                options: plugin[1]
+            }
+        }
+        return pluginMap;
     }
-    return preset.map(normalize);
 }
 
-async function normalize(plugin) {
+async function resolvePath(plugin) {
     const local = path.resolve(process.cwd(), plugin);
     if(await fs.existsAsync(`${local}.js`) || 
        await fs.existsAsync(local)) 

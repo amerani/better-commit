@@ -1,4 +1,4 @@
-const { parse } = require("../branch");
+const { parse } = require("../src/branch");
 
 test("should be null for detached head", () => {
     const HEAD = "abb907216866d0bf6c16d588d5e1494cb3ed65f6";

@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "better-commit-autocorrect": "^1.0.0",
-    "better-commit-prepend-branch": "^1.0.0",
+    "better-commit-prepend-branch": "^1.1.1",
     "fs-jetpack": "^2.1.1"
   }
 }

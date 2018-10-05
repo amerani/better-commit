@@ -28,14 +28,16 @@ const { mode, DEV, PROD } = require("./mode");
             branch: { name }
         };
         
-        const plugins = await Promise.all(await getPlugins());
+        const plugins = await getPlugins();
         
         if(mode === DEV) console.log(plugins)
 
-        for(let i = 0; i < plugins.length; i++) {
-            const plugin = plugins[i];
-            const pluginModule = require(plugin);
-            const { message } = await pluginModule(seed);
+        const pluginNames = Object.keys(plugins);
+        for(let i = 0; i < pluginNames.length; i++) {
+            const plugin = pluginNames[i];
+            const pluginModule = require(plugins[plugin].path);
+            const options = plugins[plugin].options;
+            const { message } = await pluginModule(seed, options);
             seed.commit.message = message;
         }
         //build command        
