@@ -26,13 +26,13 @@ create mode 100644 readme.md
 - supports all `git commit` options  
 `git c -i readme.md -m "Update readme" --fixup 55e75f7`
 
-- no branch name prepended on `master` or `detached HEAD` by default
 
 ## Plugins
 - extensible by specifying plugins in `.bettercommitrc`
 
 ### Core Plugins
-- `better-commit-prepend-branch` (default)
+- `better-commit-prepend-branch` (default)  
+*no branch name prepended on `master` or `detached HEAD`*
 - `better-commit-autocorrect`
 - `better-commit-emoji`
 
@@ -40,7 +40,7 @@ create mode 100644 readme.md
 {
     "plugins": [
         ["prepend-branch", {
-            "master": "mr"
+            "master": "retsam"
         }],
         ["emoji", "random"],
         "autocorrect"
