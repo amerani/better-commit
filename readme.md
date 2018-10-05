@@ -32,7 +32,7 @@ create mode 100644 readme.md
 - extensible by specifying plugins in `.bettercommitrc`
 
 ### Core Plugins
-- `better-commit-prepend-branch`
+- `better-commit-prepend-branch` (default)
 - `better-commit-autocorrect`
 - `better-commit-emoji`
 
@@ -42,7 +42,8 @@ create mode 100644 readme.md
         ["prepend-branch", {
             "master": "mr"
         }],
-        ["emoji", "🐱"]
+        ["emoji", "random"],
+        "autocorrect"
     ]
 }
 ```
@@ -50,11 +51,7 @@ create mode 100644 readme.md
 exclude plugins
 ```json
 {
-    "plugins": [
-        "!prepend-branch",
-        "!autocorrect",
-        "!emoji"
-    ]
+    "plugins": ["!prepend-branch"]
 }
 
 ```

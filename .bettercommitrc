@@ -4,6 +4,6 @@
         ["prepend-branch", {
             "master": "mr"
         }],
-        ["emoji", "🛠️"]
+        ["emoji", "random"]
     ]
 }
