@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "better-commit-autocorrect": "^2.4.0",
+    "better-commit-emoji": "^2.4.0",
     "better-commit-prepend-branch": "^2.4.0",
     "fs-jetpack": "^2.1.1"
   }
