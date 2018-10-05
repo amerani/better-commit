@@ -34,13 +34,15 @@ create mode 100644 readme.md
 ### Core Plugins
 - `better-commit-prepend-branch`
 - `better-commit-autocorrect`
+- `better-commit-emoji`
 
 ```json
 {
     "plugins": [
         ["prepend-branch", {
             "master": "mr"
-        }]
+        }],
+        ["emoji", "🐱"]
     ]
 }
 ```
@@ -50,7 +52,8 @@ exclude plugins
 {
     "plugins": [
         "!prepend-branch",
-        "!autocorrect"
+        "!autocorrect",
+        "!emoji"
     ]
 }
 
