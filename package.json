@@ -1,6 +1,6 @@
 {
   "name": "better-commit",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "git commit with better features",
   "main": "src/index.js",
   "scripts": {
@@ -22,8 +22,8 @@
     "lerna": "^3.4.1"
   },
   "dependencies": {
-    "better-commit-autocorrect": "^1.0.0",
-    "better-commit-prepend-branch": "^1.1.1",
+    "better-commit-autocorrect": "^2.4.0",
+    "better-commit-prepend-branch": "^2.4.0",
     "fs-jetpack": "^2.1.1"
   }
 }
