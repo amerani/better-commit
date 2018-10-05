@@ -26,14 +26,38 @@ create mode 100644 readme.md
 - supports all `git commit` options  
 `git c -i readme.md -m "Update readme" --fixup 55e75f7`
 
-- no branch name prepended on `master` or `detached HEAD`  
-(TODO: branch name options)
+- no branch name prepended on `master` or `detached HEAD` by default
 
 ## Plugins
 - extensible by specifying plugins in `.bettercommitrc`
-- supports published npm packages like `better-commit-*`
-- also supports local modules for co-location benefits
-- [see example repository here](https://github.com/amerani/better-commit-examples)
+
+### Core Plugins
+- `better-commit-prepend-branch`
+- `better-commit-autocorrect`
+
+```json
+{
+    "plugins": [
+        ["prepend-branch", {
+            "master": "mr"
+        }]
+    ]
+}
+```
+
+exclude plugins
+```json
+{
+    "plugins": [
+        "!prepend-branch",
+        "!autocorrect"
+    ]
+}
+
+```
+*plugins must be published on npm as `better-commit-<plugin-name>`*
+
+### [Examples](https://github.com/amerani/better-commit-examples)
 
 ## Demo
 ![Demo](https://raw.githubusercontent.com/amerani/better-commit/master/better-commit-demo.gif)
