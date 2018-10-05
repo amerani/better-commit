@@ -14,5 +14,8 @@
   "license": "MIT",
   "peerDependencies": {
     "better-commit": "^2.0.0"
+  },
+  "dependencies": {
+    "random-emoji": "^1.0.2"
   }
 }
