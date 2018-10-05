@@ -3,6 +3,7 @@
         "!autocorrect",
         ["prepend-branch", {
             "master": "mr"
-        }]
+        }],
+        ["./plugins/emoji", "🚀🚀🚀"]
     ]
 }

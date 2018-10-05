@@ -1,0 +1,18 @@
+{
+  "name": "better-commit-emoji",
+  "version": "1.1.1",
+  "description": "plugin for better commit to append emoji",
+  "main": "index.js",
+  "keywords": [
+    "better-commit",
+    "cli",
+    "git",
+    "commit",
+    "branch"
+  ],
+  "author": "Alek Merani",
+  "license": "MIT",
+  "peerDependencies": {
+    "better-commit": "^2.0.0"
+  }
+}
