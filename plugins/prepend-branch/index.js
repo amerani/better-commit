@@ -1,9 +1,13 @@
-function prepend({ commit, branch }) {
+function prepend({ commit, branch }, options) {
+    console.log(options);
     let { message } = commit;
     const { name } = branch;
-    commit.message = name === null || name === "master" 
-    ? message 
-    : `${name}: ${message}`;
+    if(name === "master" && options.master) {
+        commit.message = `${options.master}: ${message}`
+    }
+    else if(name !== null) {
+        commit.message = `${name}: ${message}`;
+    }
     return commit;
 }
 
