@@ -1,6 +1,6 @@
 {
   "name": "better-commit-autocorrect",
-  "version": "2.4.0",
+  "version": "3.0.0",
   "description": "plugin for better commit to autocorrect spelling errors",
   "main": "index.js",
   "keywords": [
