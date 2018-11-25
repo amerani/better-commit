@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 const { exec } =  require("child_process");
 const { getAsync: getBranch } = require("./branch");
-const { getAsync: getPlugins } = require("./plugins");
-const { mode, DEV, PROD } = require("./mode");
+const { mode, DEV } = require("./mode");
 const { resolve } = require("cli-plugins");
 
 (async function () {
