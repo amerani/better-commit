@@ -13,6 +13,6 @@
   "author": "Alek Merani",
   "license": "MIT",
   "peerDependencies": {
-    "better-commit": "^1.1.0"
+    "better-commit": "*"
   }
 }

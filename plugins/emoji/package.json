@@ -13,7 +13,7 @@
   "author": "Alek Merani",
   "license": "MIT",
   "peerDependencies": {
-    "better-commit": "^2.0.0"
+    "better-commit": "*"
   },
   "dependencies": {
     "random-emoji": "^1.0.2"
