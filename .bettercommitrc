@@ -2,7 +2,7 @@
     "plugins": [
         "!autocorrect",
         ["prepend-branch", {
-            "master": "retsam"
+            "master": "mstr"
         }],
         ["emoji", "random"]
     ]
