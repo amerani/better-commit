@@ -1,7 +1,7 @@
 var dictionary = require('dictionary-en-us');
 var nspell = require('nspell');
 
-async function autocorrect({ commit, branch }) {
+async function autocorrect(options, { commit, branch }) {
     let { message } = commit;
 
     const nspellPromise = new Promise((resolve, reject) => {

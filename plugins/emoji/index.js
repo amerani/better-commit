@@ -1,6 +1,6 @@
 const randomEmoji = require("random-emoji");
 
-function emojify({ commit, /*branch*/ }, options) {
+function emojify(options, { commit, /*branch*/ }) {
     let { message } = commit;
     if(options.toLowerCase() === "random") {
         const emoji = randomEmoji.random({count:1});

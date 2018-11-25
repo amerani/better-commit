@@ -1,4 +1,4 @@
-function prepend({ commit, branch }, options) {
+function prepend(options, { commit, branch }) {
     let { message } = commit;
     const { name } = branch;
     if(name === "master" && options.master) {
