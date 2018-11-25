@@ -1,0 +1,6 @@
+__tests__/
+plugins/
+better-commit-demo.gif
+.bettercommitrc
+LICENSE
+lerna.json
