@@ -1,6 +1,6 @@
 {
   "name": "better-commit-prepend-branch",
-  "version": "3.0.0",
+  "version": "3.0.3",
   "description": "plugin for better commit to prepend branch name",
   "main": "index.js",
   "keywords": [
