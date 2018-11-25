@@ -26,7 +26,7 @@
     "better-commit-autocorrect": "^3.0.0",
     "better-commit-emoji": "^3.0.0",
     "better-commit-prepend-branch": "^3.0.0",
-    "cli-plugins": "^0.1.2",
+    "cli-plugins": "^0.1.3",
     "fs-jetpack": "^2.1.1"
   }
 }

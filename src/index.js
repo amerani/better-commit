@@ -30,7 +30,8 @@ const { resolve } = require("cli-plugins");
         
         const plugins = await resolve({
             prefix: "better-commit",
-            file: ".bettercommitrc"
+            file: ".bettercommitrc",
+            plugins: ["prepend-branch"]
         })
         
         if(mode === DEV) console.log(plugins)
