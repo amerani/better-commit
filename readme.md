@@ -2,7 +2,8 @@
 `git commit` with batteries included
 
 ## Installation
-`npm i -g better-commit`
+`npm i -g better-commit`  
+`npm i -g better-commit@stable`
 
 ## Usage
 
