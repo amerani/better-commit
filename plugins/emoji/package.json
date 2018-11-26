@@ -1,6 +1,6 @@
 {
   "name": "better-commit-emoji",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "plugin for better commit to append emoji",
   "main": "index.js",
   "keywords": [
